@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<!-- Meta, title, CSS, favicons, etc. -->
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body>
+	 <div class="modal fade" id="confirmDialog" tabindex="-1" role="dialog" aria-hidden="true">
+	   <div class="modal-dialog">
+	     <div class="modal-content">
+	       <div class="modal-header">
+	           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	           <h4 class="modal-title"><i class="fa fa-info-circle"></i> 確認視窗</h4>
+	       </div>
+	       <form>
+	         <div class="modal-body">
+				<h4 data-bind="html:dialogModel.confirmDialogMessage"></h4>
+	         </div>
+	         <div class="modal-footer clearfix">
+	           <button type="button" class="btn btn-danger" data-bind="click:confirmDialogDoneFunction"><i class="fa fa-times"></i> 取消</button>
+	           <button type="button" class="btn btn-primary pull-left" data-bind="click:confirmDialogCancelFunction"><i class="fa fa-check"></i> 確認</button>           
+	         </div>
+	       </form>
+	     </div><!-- /.modal-content -->
+	   </div><!-- /.modal-dialog -->
+	 </div><!-- /.modal -->
+</body>
+</html>

@@ -1,0 +1,11 @@
+---
+
+
+
+#logging:
+#    file: "${catalina.base}/logs/spring-web-sample/api.log"
+
+server:
+    port: 8081
+
+...

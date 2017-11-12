@@ -1,14 +1,119 @@
+buildscript {
+    ext {
+        springBootVersion = project.springBootVersion
+        propdepsPluginVersion = project.propdepsPluginVersion
+    }
+    repositories {
+        mavenCentral()
+        maven { url 'http://repo.spring.io/plugins-release' }
+    }
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+        classpath "io.spring.gradle:propdeps-plugin:${propdepsPluginVersion}"
+    }
+}
+
 group 'alanbear.sample'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'war'
+apply plugin: 'idea'
+apply plugin: 'propdeps'
+apply plugin: 'propdeps-idea'
+apply plugin: 'propdeps-maven'
+apply plugin: 'propdeps-eclipse'
 
-sourceCompatibility = 1.8
+//一定要在apply之後，不然會找不到property
+targetCompatibility = project.javaVersion
+sourceCompatibility = project.javaVersion
+
+ext {
+    jsonVersion = project.jsonVersion
+    jacksonDatatypeJSR310Version = project.jacksonDatatypeJSR310Version
+    swaggerVersion = project.swaggerVersion
+    jacksonVersion = project.jacksonVersion
+    jwtVersion = project.jwtVersion
+    modelmapperVersion = project.modelmapperVersion
+    thymeleafVersion = project.thymeleafVersion
+    thymeleafExtrasVersion = project.thymeleafExtrasVersion
+    ultraqThymeleafVersion = project.ultraqThymeleafVersion
+}
 
 repositories {
     mavenCentral()
+    jcenter()
+    maven {
+        name 'public-jboss'
+        url 'http://repository.jboss.org/nexus/content/groups/public-jboss'
+    }
+    maven {
+        name 'public'
+        url 'http://repository.jboss.org/nexus/content/groups/public'
+    }
+
+//    連接內部網路專用
+//    maven {
+//        url 'http://{IP/Domain}/PATH'
+//        credentials {
+//            username project.privateRepositoryUsername
+//            password project.privateRepositoryPassword
+//        }
+//    }
+
+    //local
+    flatDir {
+        dirs '../libs'
+    }
+}
+
+configurations.all {
+    // 解決snapshot版本問題, intellij不支援自動更新版本，需要手動移除舊的dependency
+    // check for updates every build
+    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
 }
 
 dependencies {
+
+    //local jar
+//    compile fileTree(dir: '../libs', include: '*.jar')
+
+    //spring
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compile("org.springframework.boot:spring-boot-starter-security")
+    compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+
+    compile('org.springframework.boot:spring-boot-starter-tomcat')
+
+    //springfox-swagger
+    compile ("io.springfox:springfox-swagger2:${swaggerVersion}")
+    compile ("io.springfox:springfox-swagger-ui:${swaggerVersion}")
+
+    //thymeleaf
+    compile("org.thymeleaf:thymeleaf:${thymeleafVersion}")
+    compile("org.thymeleaf:thymeleaf-spring4:${thymeleafVersion}")
+    compile("org.thymeleaf.extras:thymeleaf-extras-springsecurity4:${thymeleafExtrasVersion}")
+    compile("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:${ultraqThymeleafVersion}")
+
+    // jwt
+    compile ("com.auth0:java-jwt:${jwtVersion}")
+
+    //json
+    compile("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:${jacksonDatatypeJSR310Version}")
+
+    //apache
+    compile("org.apache.commons:commons-lang3:3.6")
+    compile("commons-beanutils:commons-beanutils:1.9.3")
+
+    provided("org.projectlombok:lombok:1.16.18")
+
+    optional("org.springframework.boot:spring-boot-devtools")
+
+    testCompile("org.springframework.boot:spring-boot-starter-test")
     testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = project.gradleVersion
 }

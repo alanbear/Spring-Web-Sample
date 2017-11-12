@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="header">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="author" content="alanbear">
+    <meta name="description" th:content="${!#strings.isEmpty(description)}?${description}:'alanbear demo websit'">
+
+    <!--csrf-->
+    <meta name="_csrf" th:attr="content=${_csrf.token}"/>
+    <meta name="_csrf_header" th:attr="content=${_csrf.headerName}"/>
+
+    <!--google sso id-->
+    <meta name="google-signin-client_id" content="1049848034938-upjinf6p4j5hhp745l16cl0pj0tdemsu.apps.googleusercontent.com">
+
+</head>
+<body>
+
+</body>
+</html>
