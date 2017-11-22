@@ -20,6 +20,7 @@
           <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-web:1.5.8.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-security:1.5.8.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-thymeleaf:1.5.8.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-tomcat:1.5.8.RELEASE" />
           <element id="library" level="project" name="Gradle: io.springfox:springfox-swagger2:2.7.0" />
           <element id="library" level="project" name="Gradle: io.springfox:springfox-swagger-ui:2.7.0" />
           <element id="library" level="project" name="Gradle: org.thymeleaf:thymeleaf:3.0.3.RELEASE" />
@@ -38,6 +39,9 @@
           <element id="library" level="project" name="Gradle: org.springframework:spring-aop:4.3.12.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework.security:spring-security-config:4.2.3.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework.security:spring-security-web:4.2.3.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.apache.tomcat.embed:tomcat-embed-core:8.5.23" />
+          <element id="library" level="project" name="Gradle: org.apache.tomcat.embed:tomcat-embed-el:8.5.23" />
+          <element id="library" level="project" name="Gradle: org.apache.tomcat.embed:tomcat-embed-websocket:8.5.23" />
           <element id="library" level="project" name="Gradle: io.swagger:swagger-annotations:1.5.13" />
           <element id="library" level="project" name="Gradle: io.swagger:swagger-models:1.5.13" />
           <element id="library" level="project" name="Gradle: io.springfox:springfox-spi:2.7.0" />
@@ -70,6 +74,7 @@
           <element id="library" level="project" name="Gradle: org.springframework:spring-context:4.3.12.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework:spring-expression:4.3.12.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework.security:spring-security-core:4.2.3.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.apache.tomcat:tomcat-annotations-api:8.5.23" />
           <element id="library" level="project" name="Gradle: io.springfox:springfox-core:2.7.0" />
           <element id="library" level="project" name="Gradle: org.reflections:reflections:0.9.11" />
           <element id="library" level="project" name="Gradle: org.javassist:javassist:3.21.0-GA" />
@@ -80,11 +85,6 @@
           <element id="library" level="project" name="Gradle: net.bytebuddy:byte-buddy:1.6.14" />
           <element id="library" level="project" name="Gradle: ch.qos.logback:logback-core:1.1.11" />
           <element id="library" level="project" name="Gradle: com.google.guava:guava:20.0" />
-          <element id="library" level="project" name="Gradle: org.springframework.boot:spring-boot-starter-tomcat:1.5.8.RELEASE" />
-          <element id="library" level="project" name="Gradle: org.apache.tomcat.embed:tomcat-embed-core:8.5.23" />
-          <element id="library" level="project" name="Gradle: org.apache.tomcat.embed:tomcat-embed-el:8.5.23" />
-          <element id="library" level="project" name="Gradle: org.apache.tomcat.embed:tomcat-embed-websocket:8.5.23" />
-          <element id="library" level="project" name="Gradle: org.apache.tomcat:tomcat-annotations-api:8.5.23" />
           <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.16.18/557d13dcb647038dc687390711ccb5c9b3ffbd60/lombok-1.16.18.jar" />
           <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-devtools/1.5.8.RELEASE/ea212262e3ae47e76fa176358fcf9ee2780b80da/spring-boot-devtools-1.5.8.RELEASE.jar" />
         </element>
